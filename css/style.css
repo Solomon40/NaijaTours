@@ -34,14 +34,18 @@ body {
 
 .text-box {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 40%;
-    transform: translate(-30%, -40%);
+    transform: translate(-40%, -40%);
+    text-align: center;
+    
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    margin-bottom: 60px;
+    
 }
 
 .heading-primary-main {
@@ -49,11 +53,107 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 30px;
+    padding-left: 27px;
+
+    animation: moveInLeft 2s;
+    
 }
 
 .heading-primary-sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 9.9px;
+    letter-spacing: 9.8px;
+    padding-left: 10px;
+
+    animation: moveInRight 2s;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveBottomUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    position: relative;
+
+    transition: all ;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    
+    transition: all .1s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:active::after {
+    transform: scaleX(1.4) scaleY(1.9);
+    opacity: 0;
+}
+
+.btn-animated {    
+    animation: moveBottomUp 2s .75s;
+    animation-fill-mode: backwards;
 }
